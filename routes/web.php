@@ -13,9 +13,10 @@
 
 Route::get('/', 'FrontController@rooms')->name('home');
 
-Route::post('front/about', 'PagesController@about')->name('front/about');
+Route::get('front/about', 'PagesController@about')->name('front.about');
 
 Route::get('front/room-details', 'FrontController@roomdetails')->name('front.room-details');
+
 
 
 Auth::routes();
@@ -25,6 +26,8 @@ Route::group(['middleware'=>['auth', 'admin']], function(){
 Route::get('admin/dashboard', 'AdiminController@dashboard')->name('admin.dashboard');
 
 Route::match(['get', 'post'], 'admin/hostels', 'HostelsController@hostels')->name('admin.hostels');
+
+Route::match(['get', 'post'], 'admin/bookings', 'AdminBookingController@booking')->name('admin.bookings');
 
 Route::match(['get', 'post'], 'admin/newhostel', 'NewHostelController@newhostel')->name('admin.newhostel');
 Route::post('admin/newhostel', 'NewHostelController@hostelnew')->name('admin.hostelnew');
@@ -58,6 +61,8 @@ Route::post('custodian/account', 'CustodianAccountController@update')->name('cus
 
 Route::match(['get', 'post'], 'custodian/hostel', 'CustodianHostelController@hostel')->name('custodian.hostel');
 
+Route::match(['get', 'post'], 'custodian/bookings', 'CustodianHostelController@mybooked')->name('custodian.bookings');
+
  Route::resource('rooms', 'RoomController');
 
 Route::get('custodian/rooms', 'RoomController@index')->name('custodian.rooms');
@@ -80,5 +85,12 @@ Route::group(['middleware'=>['auth', 'booking']], function(){
 
 Route::match(['get', 'post'],'front/bookingsummary','BookingSummaryController@bookingsummary')->name('front.bookingsummary');
 
-Route::match(['get', 'post'],'front/usersaccount','UsersAccountController@account')->name('front.usersaccount');
+Route::get('usersaccount','UsersAccountController@account')->name('front.usersaccount');
+
+Route::post('front/bookingsummary', 'BookingsController@store')->name('front.booking');
+
+Route::post('usersaccount', 'UsersAccountController@update')->name('user.update');
+
+Route::get('front/bookings', 'BookingsController@index')->name('front.bookings');
+
 });

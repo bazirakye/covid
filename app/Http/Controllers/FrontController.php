@@ -11,8 +11,8 @@ class FrontController extends Controller
     public function rooms(){
 
 
-        $rooms = Rooms::paginate(6);
-        // $rooms = DB::table('rooms')->orderBy('id', 'desc')->get();
+        $rooms = Rooms::where('status' , 'on')->paginate(6);
+         // $rooms = DB::table('rooms')->orderBy('id', 'desc')->get();
         
     	return view('front.rooms', compact('rooms'));
     }

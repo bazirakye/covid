@@ -7,6 +7,7 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use App\Rooms;
 use App\user;
+use App\Bookings;
 
 class BookingSummaryController extends Controller
 {
@@ -21,6 +22,7 @@ class BookingSummaryController extends Controller
 
     	if(Auth::user()){
     	$user = user::find(Auth::user()->id);
+        
     	
     }
 	     // var_dump($room);
@@ -28,4 +30,6 @@ class BookingSummaryController extends Controller
 
 
     }
+
+
 }

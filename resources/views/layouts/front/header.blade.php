@@ -43,6 +43,9 @@
                                         {{ __('Account') }}
                                     </a>
 
+                                    <a class="dropdown-item" href="{{route('front.bookings')}}">
+                                        {{ __('Bookings') }}
+                                    </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -73,7 +76,7 @@
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="logo">
-                            <a href="./index.html">
+                            <a href="http://hostels.muni.ac.ug">
                                 <img src="{{asset('images/logo.png')}}"  alt="">
                             </a>
                         </div>
@@ -84,7 +87,7 @@
                                 <ul>
                                     <!-- <li><a href="./index.html">Home</a></li> -->
                                     <li class="active"><a href="http://hostels.muni.ac.ug/">Home</a></li>
-                                    <li><a  href="">About Us</a></li>
+                                    <li><a  href="{{route('front.about')}}">About Us</a></li>
                                     <!-- <li><a href="./pages.html">Pages</a>
                                         <ul class="dropdown">
                                             <li><a href="./room-details.html">Room Details</a></li>

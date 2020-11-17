@@ -25,7 +25,7 @@
                       
 
                         <div>
-                          <textarea  class="form-control" style=" height: 150px;"  required="">{!!$host->description!!} </textarea>
+                          <textarea  class="form-control" style=" height: 150px;"  required="">{!! $host->description !!} </textarea>
                         </div>
          
                 </div>

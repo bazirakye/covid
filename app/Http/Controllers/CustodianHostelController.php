@@ -28,4 +28,18 @@ class CustodianHostelController extends Controller
 // var_dump($user);
         
     }
+
+    public function mybooked()
+    {
+         $userid = auth()->user()->id;
+         
+         $hostelid=DB::table('hostels')->where('custodian_id' , $userid)->value('id');
+
+         // var_dump($hostelid);
+
+        $mybooking= DB::table('bookings')->where('hostel_id' , $hostelid)->get();
+
+        // var_dump($mybooking);
+        return view('custodian.bookings' ,compact('mybooking'))->with('i', (request()->input('page', 1) - 1) * 5);                
+    }
 }

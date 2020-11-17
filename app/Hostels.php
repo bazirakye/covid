@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Hostels;
+use App\Rooms;
+
 
 class Hostels extends Model
 {

@@ -43,7 +43,7 @@
           </li>
 
           <li class="nav-item">
-                <a href="#" class="nav-link {{ request()->routeIs('#') ? 'active' : '' }}" >
+                <a href="{{route('admin.bookings')}}" class="nav-link {{ request()->routeIs('admin.bookings') ? 'active' : '' }}" >
                   <i class="nav-icon fa fa-ticket-alt "></i>
                   Bookings
                 </a>

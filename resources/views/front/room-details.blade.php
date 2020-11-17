@@ -6,7 +6,7 @@
                 <div class="col-lg-12">
                     <div class="room-details-item">
                         @if($rooms)
-                         <img src="/images/{{ $rooms->image }}" alt=""> 
+                         <img src="/images/{{ $rooms->image }} " width="800" height="500" alt=""> 
                         <div class="rd-text">
                             <div class="rd-title">
                                 <h3>{{$errors->room_type}}</h3>

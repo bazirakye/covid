@@ -2,6 +2,7 @@
 
 namespace App;
 use App\Rooms;
+use App\Hostels;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -58,7 +58,7 @@
             </a>
           </li>
           <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('custodian.bookings')}}" class="nav-link {{ request()->routeIs('custodian.bookings') ? 'active' : '' }}">
                   <i class="nav-icon fa fa-ticket-alt "></i>
                   Bookings
                 </a>

@@ -21,7 +21,8 @@ class RoomController extends Controller
     {
      $userid= Auth::id();   
      $hostel=DB::table('hostels')->where('custodian_id',$userid )->value('id');
-        $rooms = Rooms::where('hostel_id',$hostel)->get();
+     // $status=DB::table('rooms')->where('status', 'booked' );
+        $rooms = Rooms::where('hostel_id',$hostel)->where('status' , 'on')->get();
 
         // var_dump($rooms);
          return view('custodian.rooms', compact('rooms'));

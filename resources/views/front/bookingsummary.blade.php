@@ -50,32 +50,59 @@
 
                    <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your name" value="{{$user['name']}}">
+                    <input type="text" class="form-control" id="name" readonly="readonly" value="{{$user['name']}}">
                    </div>
                    <div class="form-group">
                     <label for="email">Email address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" value="{{$user['email']}}">
+                    <input type="email" class="form-control" readonly="readonly" id="email" placeholder="Enter email" value="{{$user['email']}}">
                    </div>
                    <div class="form-group">
                     <label for="phone">Phone number</label>
-                    <input type="text" class="form-control" id="phone" placeholder="Enter phone number eg 07********" value="{{$user['phone']}}">
+                    <input type="text" class="form-control" readonly="readonly" id="phone" placeholder="Enter phone number eg 07********" value="{{$user['phone']}}">
                    </div>
-                   <div class="form-group">
-                    <label for="additional_information">Additional information</label>
-                   <textarea class="form-control" id="additional_information" placeholder="type here...."></textarea>
-                   </div>
+                  
                    
             	</div>
-                <!-- /.card-body -->
+                
+              </form>
 
-                <!-- <div class="card-footer">
-                  <button type="submit" class="btn btn-warning">Submit</button>
-                </div> -->
+              <form role="form" id="bookings" method="post" action="{{route('front.bookingsummary')}}" enctype="multipart/form-data" >@csrf
+                <input type="hidden" id="student_id" name="student_id" value="{{$user['id']}}">
+                <input type="hidden"  name="student_name" value="{{$user['name']}}">
+
+                <input type="hidden"  name="student_email" value="{{$user['email']}}">
+
+                <input type="hidden"  name="student_phone" value="{{$user['phone']}}">
+
+                <input type="hidden" name="hostel_id" value="{{$host->id}}">
+
+                <input type="hidden" name="hostel_name" value="{{$host->hostelName}}">
+
+                <input type="hidden" name="room_id" value="{{$room->id}}">
+
+                 <input type="hidden"  name="room_no" value="{{$room->room_no}}">
+
+                <input type="hidden" id="paid_booking_price" name="paid_booking_price" value="{{$room->booking_price}}">
+                
+                <input type="hidden" id="balance" name="balance" value="{{$room->price-$room->booking_price}}">
+
+                <!-- <div class="form-group">
+                          <button type="submit" name="booking" id="booking" class="btn btn-primary">book</button>
+                    </div> -->
+                
+                
               </form>
             </div>
           </div>
 
+<script type="text/javascript">
+  function submitform()
+{
+document.getElementById("bookings").submit();
 
+
+}
+</script>
 
           <div class="col-md-6">
           		<h3>payment method</h3>
@@ -95,7 +122,7 @@
     style: {
       size: 'medium',
       color: 'gold',
-      shape: 'pill',
+      shape: 'pill', 
     },
 
     // Enable Pay Now checkout flow (optional)
@@ -122,14 +149,30 @@
     onAuthorize: function(data, actions) {
 
     // Make a call to the REST API to execute the payment
-    return actions.payment.execute().then(function() {
+    return actions.payment.execute().then(
+    
+
+      function() {
+
+      
+     
+      submitform(); 
+
+      window.alert("Payment recieved successfully!");
       actions.redirect();
-      }
+     
+     }
+
+
+
     );
   },
 
   onCancel: function(data, actions) {
     actions.redirect();
+
+    window.alert("Sorry, we couldnt process your payment!");
+
     }
 
   }, '#paypal-button');

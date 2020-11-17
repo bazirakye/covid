@@ -15,6 +15,7 @@ class AccountController extends Controller
     	if(Auth::user()){
     	$user = user::find(Auth::user()->id);
     	if($user){
+            // var_dump($user);
         return view('admin.account')->withUser($user);
     }else{
     	return redirect()->back();

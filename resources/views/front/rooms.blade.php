@@ -12,7 +12,7 @@ echo ('rooms go here');
                 <div class="col-lg-4 col-md-6">
                     <div class="room-item">
                         <!-- <img src="{{$room->image}}" alt=""> -->
-                        <img src="/images/{{ $room->image }}" alt="">
+                        <img src="/images/{{ $room->image }}" alt="room"  width="500" height="300">
                         <div class="ri-text">
                             <h5>{{$room->room_type}}</h5>
 
