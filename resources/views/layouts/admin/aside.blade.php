@@ -14,7 +14,7 @@
           <img src="{{asset('dist/img/avatar.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ $user['name'] ?? "Admin" }}</a>
+          <a href="#" class="d-block">{{ $users['name'] ?? "Admin" }}</a>
         </div>
       </div>
 
@@ -65,7 +65,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link {{ request()->routeIs('#') ? 'active' : '' }}">
+                <a href="{{route('admin.students')}}" class="nav-link {{ request()->routeIs('admin.students') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Students</p>
                 </a>

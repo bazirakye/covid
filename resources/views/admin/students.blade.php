@@ -6,12 +6,8 @@
       
       			<div class="card">
            			 <div class="card-header">
-              			<h3 class="card-title">Custodian available</h3>
-               			<div>
-            				<div class="float-right">
-              					<span><a href="{{route('admin.newcustodian')}}"><i class="nav-icon fa fa-plus-circle">New Custodian</i></a></span>              
-           				 	</div>
-         				    </div>
+              			<h3 class="card-title">Students available</h3>
+               			
             		</div>
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -25,26 +21,17 @@
                 </tr>
                 </thead>
                 <tbody>
-                  @foreach($custodians as $value)
+                  @foreach($students as $value)
                 <tr>
                   <td>{{++$i}}
                   <td>{{ $value->name }}</td>
                   <td>{{ $value->email }}</td>
                   <td>{{ $value->phone }}</td>
-                 
                    <td><a href="#" class = "btn btn-info"> <i class="fa fa-edit"></i></a></td>
 
                   <td><a href="#" class = "btn btn-danger"> <i class="fa fa-trash"></i></a></td>
-                  <!-- <td> -->
-                    <!-- <form action="" method="POST"> -->
-                      <!-- @csrf -->
-                      <!-- @method('DELETE') -->
 
-                      <!-- <button type="submit" class="btn btn-danger">Delete</button> -->
-                      <!-- <button class="btn btn-danger btn-sm"> delete custodian</button> -->
-
-                    <!-- </form> -->
-                  <!-- </td> -->
+                  
                   
                 </tr>
                   @endforeach
@@ -55,7 +42,7 @@
                   <th>Name</th>
                   <th>Email</th>                 
                   <th>Phone</th>
-                  <th colspan="2">Action</th>
+                  <th>Action</th>
                 </tr>
                 </tfoot>
               </table>

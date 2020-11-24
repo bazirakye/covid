@@ -21,21 +21,12 @@ class CustodiansController extends Controller
        $change = User::where('email', '=',  $request['email']);
      $change->update(['user_type' => 1]);
    }
-    // $custodian = user::find(Auth::custodians()->email);
-
-    // public function destroy(Custodian $custodian)
-
-    // {
-
-    //     $custodian->delete();
-
   
+     public function students()
+    {
+       $students = DB::table('users')->where('user_type' , '1')->get();
 
-    //     return redirect()->back()
-
-    //                     ->with('success','Product deleted successfully');
-
-    // }
-
+        return view('admin.students')->with('students', $students)->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 
 }

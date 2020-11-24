@@ -45,6 +45,8 @@ Route::post('admin/newcustodian', 'NewCustodianController@check')->name('admin.c
 
 Route::match(['get', 'post'], 'admin/custodians', 'CustodiansController@custodians')->name('admin.custodians');
 
+Route::match(['get', 'post'], 'admin/students', 'CustodiansController@students')->name('admin.students');
+
 // Route::match(['get', 'post'], 'admin/custodians', 'CustodiansController@destroy')->name('admin.delete');
 
 
